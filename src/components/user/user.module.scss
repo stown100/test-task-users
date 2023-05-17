@@ -1,0 +1,161 @@
+.User {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 0;
+  &Btn {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &Info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &Avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 11px 0 0;
+    }
+    &DefaultAvatar {
+      width: 34px;
+      height: 34px;
+      padding: 15px;
+      background: #ebebf0;
+      border-radius: 50%;
+      margin: 0 11px 0 0;
+    }
+    &Content {
+      width: 100%;
+    }
+    &Contacts {
+      display: flex;
+      align-items: center;
+    }
+    &Name {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
+      color: #424f5e;
+      margin: 0 11px 0 0;
+    }
+    &Email {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      color: #9494a0;
+    }
+    &Permissions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
+      grid-auto-flow: dense;
+      column-gap: 5px;
+      row-gap: 4px;
+      margin: 9px 0 0;
+    }
+    &Permission {
+      border: 1px solid #c1c1cb;
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: #9494a0;
+      &Admin {
+        color: #5a57ff;
+        border: 1px solid #5a57ff;
+      }
+    }
+  }
+  &PopupAndBtn {
+    position: relative;
+  }
+  &Popup {
+    position: absolute;
+    top: 20px;
+    left: -222px;
+    background: #ffffff;
+    box-shadow: -30px 30px 50px rgba(28, 28, 30, 0.1);
+    border-radius: 15px;
+    padding: 26px 22px 27px;
+    z-index: 1;
+    width: 222px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    & > span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      color: #424f5e;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:last-of-type {
+        color: #9494a0;
+      }
+    }
+    &Permission {
+      display: flex;
+      margin: 0 0 10px;
+      &Img {
+        width: 16px;
+        height: 16px;
+        margin: 0 9px 0 0;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+      &Span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #424f5e;
+      }
+    }
+  }
+}
+
+.Popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .User {
+    &Info {
+      &Permissions {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+      &Permission {
+        max-width: 200px; /* задаем максимальную ширину блоков */
+        overflow: hidden; /* скрываем все, что выходит за пределы блока */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &Contacts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+    }
+  }
+}
